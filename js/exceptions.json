@@ -1,0 +1,13 @@
+exceptions = [
+    {"name": "Modelo_MX64_BL_3G"}, 
+    {"name": "Modelo_MX65_BL_3G"}, 
+    {"name": "Modelo_Eudora_MX65_BL_BL"}, 
+    {"name": "LAB_ELSYS"}, 
+    {"name": "Modelo_MX65_MPLS_BL"}, 
+    {"name": "Modelo_MX65_MPLS_3G"}, 
+    {"name": "CORE_CTX_VERDE"}, 
+    {"name": "CORE_CTX_AM"}, 
+    {"name": "CORE_CTX_AMARELO_OLD"}, 
+    {"name": "LAB_AM"},
+    {"name": "TESTE NECKEL"}
+]
