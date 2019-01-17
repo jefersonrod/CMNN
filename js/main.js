@@ -1,7 +1,7 @@
 //var data;
 //var file="csv/VD_sample.csv";
-//var file="csv/VD_networks2.csv";
-var file="csv/VD_networks.csv";
+var file="csv/Boticario_VD_networks.csv";
+//var file="csv/VD_networks.csv";
 var found = false;
 var br="<br>";
 var ignorar = [];
@@ -223,8 +223,4 @@ function checkLink(dadosCSV){
 function limpar(){
     location.reload();
     window.location.reload(true);   
-}
-
-function mailto(){
-    mailto:"t_disys.jeferson.rodrigues@boticario.com.br"
 }
