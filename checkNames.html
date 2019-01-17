@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Check Names Meraki</title>
+    <title>Check Meraki Names Nomenclature</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,42 +12,50 @@
 <body onload="loadJSON()">
     <br>
     <div class="container">
-    <div>
-        <button onclick="load()">load</button>
+    <div id="header" class="bg-success rounded p-4 text-white">
+        <h4>Relatório de inconsistências do Cisco Meraki</h4>
+        <button class="btn btn-info" onclick="load()">Carregar</button>
+        <button class="btn btn-info" onclick="limpar()">Reset</button>
+        <button class="btn btn-info" onclick="print()">Imprimir</button>
     </div>
     <br>
-    <div id="un">
+    <div id="un" class="bg-primary rounded p-2 text-white">
         <h5>Check U.N. (B,Q,T,E)</h5>
         <p id="resultUN"></p>
 
     </div>
-    <div id="tpv">
+    <hr>
+    <div id="tpv" class="bg-primary rounded p-2 text-white">
         <h5>Check Tipo de vendas (LJ, QS, ER, R)</h5>
         <p id="resultTPV"></p>
     
     </div>
-    
-    <div id="tpv">
+    <hr>
+    <div id="clube" class="bg-primary rounded p-2 text-white">
         <h5>Check Clube (CO, CP, CS, ES, EP, AM, AS)</h5>
         <p id="resultClube"></p>        
     </div>
-
-    <div id="cod">
+    <hr>
+    <div id="cod" class="bg-primary rounded p-2 text-white">
         <h5>Check Código Loja (XXXXXXX)</h5>
         <p id="resultCodLoja"></p>        
     </div>
-    
-    <div id="uf">
+    <hr>
+    <div id="uf" class="bg-primary rounded p-2 text-white">
         <h5>Check UF (XX)</h5>
         <p id="resultUF"></p>        
     </div>
-
-    <div id="link">
+    <hr>
+    <div id="link" class="bg-primary rounded p-2 text-white">
             <h5>Check Link(EE, FF, EF, FE)</h5>
             <p id="resultLink"></p>        
-        </div>
-    
-
+    </div>
+    <br>
+    <hr>
+    <div id="author" >
+            <button type="button" class="btn btn-outline-dark" onclick="mailto()">Desenvolvido por Jeferson/Disys - 01/2019</button>     
+    </div>
+    <br>
     </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -58,6 +66,7 @@
     <script src="js/jquery.csv.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript" src="js/exceptions.json"></script>
+    
 </body>
 </html>
 

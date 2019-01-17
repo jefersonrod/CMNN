@@ -1,7 +1,7 @@
 //var data;
 //var file="csv/VD_sample.csv";
-var file="csv/VD_networks2.csv";
-//var file="csv/VD_networks.csv";
+//var file="csv/VD_networks2.csv";
+var file="csv/VD_networks.csv";
 var found = false;
 var br="<br>";
 var ignorar = [];
@@ -86,7 +86,7 @@ function checkUN(dadosCSV){
             console.log("Check UN: "+un+"="+str);
             if (un.includes(" ")){
                 console.log(un+" contém espaços em branco");
-                result = result+spanred+un+spanend+" - "+str+" contém espaços em branco"+br;
+                result = result+spanred+un+spanend+" - "+str+" contém espaço(s) em branco"+br;
             }else{
                 result = result+spanred+un+spanend+" - "+str+br;
             }
@@ -128,7 +128,7 @@ function checkClube(dadosCSV){
             //console.log("Check clube:"+str+" = "+club);
             if (club.includes(" ")) {
                 console.log(club+" contém espaços em branco");
-                result = result+spanred+club+spanend+" - "+str2+" contém espaços em branco"+br;
+                result = result+spanred+club+spanend+" - "+str2+" contém espaço(s) em branco"+br;
             }else{
                 console.log(club+"="+str2);
                 result = result+spanred+club+spanend+" - "+str2+br;
@@ -208,7 +208,7 @@ function checkLink(dadosCSV){
             //console.log(link);
             if (link.includes(" ") && link.length == 3) {
                 //console.log("Check Link:"+str2+" = "+link+" contém espaços em branco no final");
-                result = result+spanred+link+spanend+" - "+str2+" contém espaços em branco no final"+br;
+                result = result+spanred+link+spanend+" - "+str2+" contém espaço(s) em branco no final"+br;
             }else{
                 //console.log("Check Link:"+str2+" = "+link);
                 result = result+spanred+link+spanend+" - "+str2+br;
@@ -218,4 +218,13 @@ function checkLink(dadosCSV){
         }        
     }
     document.getElementById("resultLink").innerHTML = result;
+}
+
+function limpar(){
+    location.reload();
+    window.location.reload(true);   
+}
+
+function mailto(){
+    mailto:"t_disys.jeferson.rodrigues@boticario.com.br"
 }
