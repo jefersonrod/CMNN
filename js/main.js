@@ -86,7 +86,7 @@ function checkUN(dadosCSV){
             console.log("Check UN: "+un+"="+str);
             if (un.includes(" ")){
                 console.log(un+" contém espaços em branco");
-                result = result+spanred+un+spanend+" - "+str+" contém espaço(s) em branco"+br;
+                result = result+spanred+un+spanend+" - "+str+" contém espaço(s) em branco no inicio"+br;
             }else{
                 result = result+spanred+un+spanend+" - "+str+br;
             }
