@@ -21,3 +21,4 @@ How to use:
 - Load the index.html on Mozila Firefox, press the button _"Carregar"_ (Load) to analisys the CSV and show the inconsistencies.
 - Press the button _"Imprimir"_ (Print) to print the inconsistencies generated in a PDF file format.
 
+The inconsistencies are marked as red and the generate output in concole. Press F12 and click on console tab to check console messages.
