@@ -14,7 +14,7 @@ Library: jquery.csv.js
 
 Front-end: Bootstrap 4
 
-Scenario: I have a Cisco Meraki plataform receiveing a lot of new networks added daily, the names can contains errors due human factor typing. So I develop this application to check CSV file downloaded every day from Cisco Meraki plataform and the my application checks for issues in the names. The names have some rules that need to be followed. After check the CSV by the application, a issue report is printed in PDF by Firefox Browser and needs to be correct the wrong names.
+Scenario: I have a Cisco Meraki plataform receiveing a lot of new networks added daily, the names can contains errors due human factor typing. So I developed this application to check CSV file downloaded every day from Cisco Meraki plataform and the my application checks for issues in the names. The names have some rules that need to be followed. After check the CSV by the application, a issue report is printed in PDF by Firefox Browser and needs to be correct the wrong names.
 
 How to use: 
 - First download the CSV file from Cisco Meraki plataform and put on CMMN\CSV folder.
