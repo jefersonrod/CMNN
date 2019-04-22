@@ -19,4 +19,5 @@ Scenario: I have a Cisco Meraki plataform receiveing a lot of new networks added
 How to use: 
 - First download the CSV file from Cisco Meraki plataform and put on CMMN\CSV folder.
 - Load the index.html on Mozila Firefox, press the button _"Carregar"_ (Load) to analisys the CSV and show the inconsistencies.
-- Press the button _"Imprimir"_ to print the inconsistencies generated in a PDF file format.
+- Press the button _"Imprimir"_ (Print) to print the inconsistencies generated in a PDF file format.
+
