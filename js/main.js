@@ -1,6 +1,6 @@
 //var data;
 //var file="csv/VD_sample.csv";
-var file="csv/Boticario_VD_networks.csv";
+var file="csv/meraki_networks.csv";
 //var file="csv/VD_networks.csv";
 var found = false;
 var br="<br>";
@@ -67,82 +67,82 @@ function processData(dataCSV){
 		}
     //console.log(dataCSV);
     console.log("tamanho do array após redução: "+dataCSV.length);
-    checkUN(dataCSV);
-    checkTPV(dataCSV);
-    checkClube(dataCSV);
-    checkCodLoja(dataCSV);
-    checkUF(dataCSV);
-    checkLink(dataCSV);
+    checkPrimaryCodes(dataCSV);
+    checkArea(dataCSV);
+    checkSector(dataCSV);
+    checkCode(dataCSV);
+    checkState(dataCSV);
+    checkDepartment(dataCSV);
 }
 
-function checkUN(dadosCSV){
-    //check for wrong UN(B,Q,T,E)
-    console.log("=Check UN");
+function checkPrimaryCodes(dadosCSV){
+    //check for wrong PrimaryCodes(B,Q,T,E)
+    console.log("=Check PrimaryCodes");
     var result="";
     for (let i = 0; i < dadosCSV.length; i++) {
         var str=dadosCSV[i].Name;
-        var un=str.substring(0,1);        
-        if ((un != "B") && (un != "Q") && (un != "T") && (un != "E")) {            
-            console.log("Check UN: "+un+"="+str);
-            if (un.includes(" ")){
-                console.log(un+" contém espaços em branco");
-                result = result+spanred+un+spanend+" - "+str+" contém espaço(s) em branco no inicio"+br;
+        var pc=str.substring(0,1);        
+        if ((pc != "B") && (pc != "Q") && (pc != "T") && (pc != "E")) {            
+            console.log("Check PrimaryCodes: "+pc+"="+str);
+            if (pc.includes(" ")){
+                console.log(pc+" contém espaços em branco");
+                result = result+spanred+pc+spanend+" - "+str+" contém espaço(s) em branco no inicio"+br;
             }else{
-                result = result+spanred+un+spanend+" - "+str+br;
+                result = result+spanred+pc+spanend+" - "+str+br;
             }
             
         }
     }
-    document.getElementById("resultUN").innerHTML = result;
+    document.getElementById("resultPC").innerHTML = result;
 }
 
-function checkTPV(dadosCSV){
-    //check for wrong TPV(LJ, QS, ER, R)
-    console.log("=Check Tipo Ponto de Vendas");
+function checkArea(dadosCSV){
+    //check for wrong Area(LJ, QS, ER, R)
+    console.log("=Check Area");
     var result="";
     for (let i = 0; i < dadosCSV.length; i++) {
         var str=dadosCSV[i].Name; 
         str=str.substring(str.indexOf("-")+1);        
-        var tpv=str.substring(0,2);
+        var area=str.substring(0,2);
         //console.log(str);
-        if ((tpv != "LJ") && (tpv != "QS") && (tpv != "ER") && (tpv != "R")) {
-            console.log("Check TPV:"+str+" = "+tpv);
-            result = result+spanred+tpv+spanend+" - "+str+br;
+        if ((area != "LJ") && (area != "QS") && (area != "ER") && (area != "R")) {
+            console.log("Check Area:"+str+" = "+area);
+            result = result+spanred+area+spanend+" - "+str+br;
         }        
     }
-    document.getElementById("resultTPV").innerHTML = result;
+    document.getElementById("resultArea").innerHTML = result;
 }
 
-function checkClube(dadosCSV){
+function checkSector(dadosCSV){
     //check for wrong clube(CO, CP, CS, ES, EP, AM, AS)
-    console.log("=Check clube");
+    console.log("=Check Sector");
     var result="";
     for (let i = 0; i < dadosCSV.length; i++) {
         var str=dadosCSV[i].Name; 
         var str2=str;
         str=str.substring(str.indexOf("-")+1);
         str=str.substring(str.indexOf("-")+1); 
-        var club=str.substring(0,str.indexOf("-"));
+        var sector=str.substring(0,str.indexOf("-"));
         //console.log(str);
-        if ((club != "CO") && (club != "CP") && (club != "CS") && (club != "ES") && (club != "EP") && (club != "AM") && (club != "AS")) {
-            //console.log("Check clube:"+str+" = "+club);
-            if (club.includes(" ")) {
-                console.log(club+" contém espaços em branco");
-                result = result+spanred+club+spanend+" - "+str2+" contém espaço(s) em branco"+br;
+        if ((sector != "CO") && (sector != "CP") && (sector != "CS") && (sector != "ES") && (sector != "EP") && (sector != "AM") && (sector != "AS")) {
+            //console.log("Check Sector:"+str+" = "+sector);
+            if (sector.includes(" ")) {
+                console.log(sector+" contém espaços em branco");
+                result = result+spanred+sector+spanend+" - "+str2+" contém espaço(s) em branco"+br;
             }else{
-                console.log(club+"="+str2);
-                result = result+spanred+club+spanend+" - "+str2+br;
+                console.log(sector+"="+str2);
+                result = result+spanred+sector+spanend+" - "+str2+br;
             }
             
         }        
     }
-    document.getElementById("resultClube").innerHTML = result;
+    document.getElementById("resultSector").innerHTML = result;
 
 }
 
-function checkCodLoja(dadosCSV){
+function checkCode(dadosCSV){
     //check for wrong codigo loja (XXXXXXX)
-    console.log("=Check cod.loja");
+    console.log("=Check code");
     var result="";
     for (let i = 0; i < dadosCSV.length; i++) {
         var str=dadosCSV[i].Name; 
@@ -150,21 +150,21 @@ function checkCodLoja(dadosCSV){
         str=str.substring(str.indexOf("-")+1);
         str=str.substring(str.indexOf("-")+1);
         str=str.substring(str.indexOf("-")+1);
-        var codl=str.substring(0,7);  
+        var cod=str.substring(0,7);  
         var jc="JC";
         var jl="JL";
-        if (isNaN(codl*1) && (!codl.includes(jc)) && (!codl.includes(jl))) {
-            console.log(codl*1);            
-            console.log("Check cod.loja:"+str2+" = "+codl);
-            result = result+spanred+codl+spanend+" - "+str2+br;
+        if (isNaN(cod*1) && (!cod.includes(jc)) && (!cod.includes(jl))) {
+            console.log(cod*1);            
+            console.log("Check code:"+str2+" = "+cod);
+            result = result+spanred+cod+spanend+" - "+str2+br;
         }        
     }
-    document.getElementById("resultCodLoja").innerHTML = result;
+    document.getElementById("resultCode").innerHTML = result;
 }
 
-function checkUF(dadosCSV){
-    //check for wrong  UF (XX)
-    console.log("=Check UF");
+function checkState(dadosCSV){
+    //check for wrong  State (XX)
+    console.log("=Check State");
     var result="";
     for (let i = 0; i < dadosCSV.length; i++) {
         var str=dadosCSV[i].Name; 
@@ -173,26 +173,26 @@ function checkUF(dadosCSV){
         str=str.substring(str.indexOf("-")+1);
         str=str.substring(str.indexOf("-")+1);
         str=str.substring(str.indexOf("-")+1);
-        var uf=str.substring(0,2);  
+        var st=str.substring(0,2);  
         
-        if ((uf != "PR") && (uf != "SC") && (uf != "RS") && (uf != "SP") && (uf != "RJ")&& (uf != "ES")&& (uf != "MG")&& (uf != "MS")&& (uf != "MT")&& (uf != "GO")&& (uf != "AC")&& (uf != "AM")&& (uf != "TO")&& (uf != "PE")&& (uf != "PB")&& (uf != "CE")&& (uf != "SE")&& (uf != "MA")&& (uf != "DF")&& (uf != "PI")&& (uf != "BA")&& (uf != "AL")&& (uf != "RR")&& (uf != "RN")&& (uf != "PA")&& (uf != "AP")&& (uf != "RO")) {
-            console.log(uf);
-            console.log("Check UF:"+str2+" = "+uf);
-            result = result+spanred+uf+spanend+" - "+str2+br;
-            if ((uf.includes("-")) || (uf.length !== 2)) {
-                console.log(uf);
-                console.log("Check UF:"+str2+" = "+uf);
-                result = result+spanred+uf+spanend+" - "+str2+br;
+        if ((st != "PR") && (st != "SC") && (st != "RS") && (st != "SP") && (st != "RJ")&& (st != "ES")&& (st != "MG")&& (st != "MS")&& (st != "MT")&& (st != "GO")&& (st != "AC")&& (st != "AM")&& (st != "TO")&& (st != "PE")&& (st != "PB")&& (st != "CE")&& (st != "SE")&& (st != "MA")&& (st != "DF")&& (st != "PI")&& (st != "BA")&& (st != "AL")&& (st != "RR")&& (st != "RN")&& (st != "PA")&& (st != "AP")&& (st != "RO")) {
+            console.log(st);
+            console.log("Check st:"+str2+" = "+st);
+            result = result+spanred+st+spanend+" - "+str2+br;
+            if ((st.includes("-")) || (st.length !== 2)) {
+                console.log(st);
+                console.log("Check State:"+str2+" = "+st);
+                result = result+spanred+st+spanend+" - "+str2+br;
             }    
         }
             
     }
-    document.getElementById("resultUF").innerHTML = result;
+    document.getElementById("resultState").innerHTML = result;
 }
 
-function checkLink(dadosCSV){
-    //check for wrong  Link (EE, FF, EF, FE)
-    console.log("=Check Link");
+function checkDepartment(dadosCSV){
+    //check for wrong  Department (EE, FF, EF, FE)
+    console.log("=Check Department");
     var result="";
     for (let i = 0; i < dadosCSV.length; i++) {
         var str=dadosCSV[i].Name; 
@@ -202,22 +202,22 @@ function checkLink(dadosCSV){
         str=str.substring(str.indexOf("-")+1);
         str=str.substring(str.indexOf("-")+1);
         str=str.substring(str.indexOf("-")+1);
-        var link=str.substring(0);  
+        var dpt=str.substring(0);  
         
-        if (((link != "EE") && (link != "FF") && (link != "EF") && (link != "FE"))) {
-            //console.log(link);
-            if (link.includes(" ") && link.length == 3) {
-                //console.log("Check Link:"+str2+" = "+link+" contém espaços em branco no final");
-                result = result+spanred+link+spanend+" - "+str2+" contém espaço(s) em branco no final"+br;
+        if (((dpt != "EE") && (dpt != "FF") && (dpt != "EF") && (dpt != "FE"))) {
+            //console.log(dpt);
+            if (dpt.includes(" ") && dpt.length == 3) {
+                //console.log("Check Department:"+str2+" = "+dpt+" contém espaços em branco no final");
+                result = result+spanred+dpt+spanend+" - "+str2+" contém espaço(s) em branco no final"+br;
             }else{
-                //console.log("Check Link:"+str2+" = "+link);
-                result = result+spanred+link+spanend+" - "+str2+br;
+                //console.log("Check Department:"+str2+" = "+dpt);
+                result = result+spanred+dpt+spanend+" - "+str2+br;
             }
             
             
         }        
     }
-    document.getElementById("resultLink").innerHTML = result;
+    document.getElementById("resultDepartment").innerHTML = result;
 }
 
 function limpar(){
