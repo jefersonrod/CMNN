@@ -1,0 +1,7 @@
+exceptions = [
+    {"name": "ALPHA"},    
+    {"name": "BETA"},     
+    {"name": "TANGO"}, 
+    {"name": "BRAVO"}, 
+    {"name": "OMEGA"}
+]
